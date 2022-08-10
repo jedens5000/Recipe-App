@@ -1,19 +1,21 @@
-import React from 'react'
-import style from './recipe.module.css';
+import React from "react";
+import style from "./recipe.module.css";
+import Rating from "@mui/material/Rating";
 
-const Recipe = ({title, calories, image, ingredients}) => {
+const Recipe = ({ title, calories, image, ingredients }) => {
   return (
     <div className={style.recipe}>
       <h1>{title}</h1>
-      <img className={style.image} src={image} alt='finished recipe' />
+      <Rating />
+      <img className={style.image} src={image} alt="finished recipe" />
       <ol>
-        {ingredients.map(ingredient =>(
+        {ingredients.map((ingredient) => (
           <li>{ingredient.text}</li>
         ))}
       </ol>
-      <p>{calories}</p>
+      <p>Calories: {Math.round(calories)}</p>
     </div>
   );
-}
+};
 
-export default Recipe
+export default Recipe;
